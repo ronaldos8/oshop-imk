@@ -18,7 +18,7 @@
 									<button type="button" class="btn btn-default get">Beli Sekarang Juga</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="<?php echo base_url('assets/'); ?>images/home/girl2.jpg" class="girl img-responsive" alt="" />
+									<img src="<?php echo base_url('assets/'); ?>images/produk/girl2.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							<div class="item">
@@ -28,7 +28,7 @@
 									<button type="button" class="btn btn-default get">Beli Sekarang juga</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="<?php echo base_url('assets/'); ?>images/home/girl2.jpg" class="girl img-responsive" alt="" />
+									<img src="<?php echo base_url('assets/'); ?>images/produk/girl2.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							
@@ -39,7 +39,7 @@
 									<button type="button" class="btn btn-default get">Beli Sekarang Juga</button>
 								</div>
 								<div class="col-sm-6">
-									<img  src="<?php echo base_url('assets/'); ?>images/home/girl2.jpg" class="girl img-responsive" alt="" />
+									<img  src="<?php echo base_url('assets/'); ?>images/produk/girl2.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 						</div>
