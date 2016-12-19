@@ -19,6 +19,7 @@ class Produk extends CI_Controller {
 		$data['slider'] = 0;
 		if ($id != NULL) {
 			$data['isi'] = 'konten/detail_produk';
+			// $data['v_kategori'] = FALSE;
 
 			$data['produk'] = $this->produkmodel->get_by_id($id);
 

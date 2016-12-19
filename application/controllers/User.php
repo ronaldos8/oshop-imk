@@ -7,6 +7,8 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('usermodel');
+		$this->load->model('produkmodel');
+		$this->load->library('cart');
 	}
 
 	public function index()
@@ -73,6 +75,46 @@ class User extends CI_Controller {
 			$this->session->set_flashdata('status', 'Username atau Password salah');
 			redirect(base_url('user/login'),'refresh');
 		}
+	}
+
+	function cart()
+	{
+		$data['title'] = 'Cart ';
+		$data['slider'] = 0;
+		$data['v_kategori'] = FALSE;
+		$data['isi'] = 'konten/cart';
+
+		$this->load->view('main', $data);
+	}
+
+	function proses_cart()
+	{
+		if ($this->input->post('submit') == 'cart') {
+			$data = array(
+				'id'      => $this->input->post('id_produk'),
+				'qty'     => $this->input->post('qty'),
+				'price'   => $this->input->post('harga_produk'),
+				'name'    => $this->input->post('nama_produk'),
+				'foto'	  => $this->input->post('foto_produk')
+			);
+
+			$this->cart->insert($data);
+			
+			$r = base_url('produk/s/') .$this->input->post('id_produk');
+			redirect($r,'refresh');
+		}else if ($this->input->post('submit') == 'buy') {
+			echo 'string';
+		}
+	}
+
+	protected function hapus_cart($rowid)
+	{
+		$data = array(
+			'rowid' => $rowid,
+			'qty'   => 0
+		);
+		
+		$this->cart->update($data);
 	}
 
 }

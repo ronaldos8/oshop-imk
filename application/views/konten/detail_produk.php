@@ -5,10 +5,10 @@
 								<img src="<?php echo base_url('assets/images/produk/'); echo $produk->foto_produk; ?>" alt="" />
 								<h3>ZOOM</h3>
 							</div>
-							<div id="similar-product" class="carousel slide" data-ride="carousel">
+							<!-- <div id="similar-product" class="carousel slide" data-ride="carousel"> -->
 								
 								  <!-- Wrapper for slides -->
-								    <div class="carousel-inner">
+								    <!-- <div class="carousel-inner">
 										<div class="item active">
 										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
 										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
@@ -25,16 +25,16 @@
 										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
 										</div>
 										
-									</div>
+									</div> -->
 
 								  <!-- Controls -->
-								  <a class="left item-control" href="#similar-product" data-slide="prev">
+<!-- 								  <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
 								  </a>
 								  <a class="right item-control" href="#similar-product" data-slide="next">
 									<i class="fa fa-angle-right"></i>
-								  </a>
-							</div>
+								  </a> -->
+							<!-- </div> -->
 
 						</div>
 						<div class="col-sm-6">
@@ -48,12 +48,27 @@
 									<span>Rp.<?php echo number_format($produk->harga_produk, 0, ',', '.') ?></span>
 								</span>
 								<span>
-									<label>Quantity:</label>
-									<input type="text" value="3" />
-									<button type="button" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
-										Add to cart
-									</button>
+									<form action="<?php echo base_url('user/proses_cart'); ?>" method="POST" accept-charset="utf-8">		
+									<p>
+										<label>Quantity:</label>
+										<input type="number" name="qty" value="" min="1" required />
+									</p>
+									<br>
+									<div class="row">
+										<input type="hidden" name="id_produk" value="<?php echo $produk->id_produk; ?>">
+										<input type="hidden" name="nama_produk" value="<?php echo $produk->nama_produk; ?>">
+										<input type="hidden" name="harga_produk" value="<?php echo $produk->harga_produk; ?>">
+										<input type="hidden" name="foto_produk" value="<?php echo $produk->foto_produk; ?>">
+
+										<button type="submit" name="submit" value="buy" class="btn btn-fefault cart" style="background: green;">
+											<b>Beli</b>
+										</button>
+										<button type="submit" name="submit" value="cart" class="btn btn-fefault cart">
+											<i class="fa fa-shopping-cart"></i>
+											Add to cart
+										</button>
+									</div>
+									</form>
 								</span>
 								<p><b>Availability:</b> In Stock</p>
 								<p><b>Condition:</b> <?php if($produk->kondisi_produk == 1) echo "Baru"; else echo 'Bekas'; ?></p>

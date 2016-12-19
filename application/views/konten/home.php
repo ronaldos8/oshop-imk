@@ -30,7 +30,7 @@
 														</p>
 														<h2>Rp.<?php echo number_format($value->harga_produk, 2, ',', '.') ?></h2>
 														<p><?php echo $value->nama_produk; ?></p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Tambahkan</a>
+														<a href="<?php echo base_url('user/cart/') .$value->id_produk; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Tambahkan</a>
 														<a href="<?php echo base_url('produk/s/') ?><?php echo $value->id_produk; ?>" class="btn btn-default add-to-cart"><i class="fa fa-eye"></i>Lihat</a>
 													</div>
 												</div>

@@ -57,7 +57,7 @@
 									}
 								?>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="<?php echo base_url('user/cart'); ?>"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<?php
 									if (!$this->session->has_userdata('log_user')) {
 								?>
