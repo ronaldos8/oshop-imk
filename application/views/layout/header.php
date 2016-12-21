@@ -56,12 +56,12 @@
 								<?php
 									}
 								?>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="<?php echo base_url('user/cart'); ?>"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="<?php echo base_url('user/cart'); ?>"><i class="fa fa-shopping-cart"></i> Keranjang Belanja</a></li>
 								<?php
 									if (!$this->session->has_userdata('log_user')) {
 								?>
-									<li><a href=""><i class="fa fa-plus-square-o"></i> Register</a></li>
+									<li><a href="<?php echo base_url('user/login'); ?>"><i class="fa fa-plus-square-o"></i> Daftar</a></li>
 									<li><a href="<?php echo base_url('user/login'); ?>" class="<?php if(isset($menu_login)) echo $menu_login; ?>"><i class="fa fa-lock"></i> Login</a></li>
 								<?php
 									}else {
@@ -96,19 +96,21 @@
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Produk</a></li>
-										<li><a href="product-details.html">Detail Produk</a></li>  
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+										<li><a href="product-details.html">Kategori</a></li>  
+										<li><a href="cart.html">Diskon</a></li> 
+										<li><a href="login.html">Pengiriman</a></li> 
                                     </ul>
                                 </li> 
-								<li><a href="contact-us.html">Kontak</a></li>
+								<li><a href="contact-us.html">Tentang Kami</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Pencarian"/>
-						</div>
+						<form action="<?php echo base_url('produk/cari/'); ?>" method="get" accept-charset="utf-8">
+							<div class="search_box pull-right">
+								<input type="text" name="s" value="<?php if(isset($_GET['s'])) echo $_GET['s']; ?>" placeholder="Pencarian"/>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

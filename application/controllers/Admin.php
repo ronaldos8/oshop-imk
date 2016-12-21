@@ -6,8 +6,8 @@ class Admin extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('produkmodel');
-		$this->load->model('adminmodel');
+		$this->load->model('ProdukModel');
+		$this->load->model('AdminModel');
 		$this->load->helper('file');
 	}
 
@@ -72,7 +72,7 @@ class Admin extends CI_Controller {
 		$data['page_header'] = 'Produk';
 		$data['isi'] = 'admin/produk';
 
-		$data['list_produk'] = $this->produkmodel->get_all();
+		$data['list_produk'] = $this->ProdukModel->get_all();
 
 		$this->load->view('admin/main', $data); 
 	}
@@ -86,7 +86,7 @@ class Admin extends CI_Controller {
 		$data['page_header'] = 'Tambah Produk';
 		$data['isi'] = 'admin/tambahproduk';
 
-		$data['list_subkategori'] = $this->adminmodel->get_subkategori();
+		$data['list_subkategori'] = $this->AdminModel->get_subkategori();
 
 		$this->load->view('admin/main', $data);
 	}
@@ -146,7 +146,7 @@ class Admin extends CI_Controller {
 		$data['page_header'] = 'kategori';
 		$data['isi'] = 'admin/kategori';
 
-		$data['list_kategori'] = $this->adminmodel->get_full_kategori();
+		$data['list_kategori'] = $this->AdminModel->get_full_kategori();
 
 		$this->load->view('admin/main', $data);
 	}

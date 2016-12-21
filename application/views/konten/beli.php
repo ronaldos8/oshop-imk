@@ -3,7 +3,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-sm-8 col-xs-12 well">
-					<div class="login-form"><!--login form-->
+					<?php
+						if ($pembeli != NULL) {
+					?>
+						<div class="login-form"><!--login form-->
 						<h2>Isi Data Pembelian</h2>
 						<div class="panel">
 						<div class="panel-body">
@@ -92,6 +95,16 @@
 							</div>
 						</form>
 					</div><!--/login form-->	
+					<?php
+						}else {
+					?>
+							<p>
+								Silahkan login terlebih dahulu untuk berbelanja.
+								<a href="<?php echo base_url('user/login'); ?>" title="">Login Disini</a>
+							</p>
+					<?php
+						}
+					?>
 				</div>
 
 				<div class="col-md-4 col-sm-4 col-xs-12 well">
@@ -121,11 +134,17 @@
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<br>
 						</div>
+						<?php
+							if ($pembeli != NULL) {
+						?>
 						<div class="col-md-12 col-sm-12 col-xs-12" align="center">
 							<a href="<?php echo base_url('user/pembayaran/') .$produk->id_produk ."/" .$qty; ?>" title="">
 								<button type="submit" class="btn btn-default">Pilih Metode Pembayaran</button>
 							</a>
 						</div>
+						<?php
+							}
+						?>
 					</div>
 				</div>
 			</div>

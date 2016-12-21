@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('produkmodel');
+		$this->load->model('ProdukModel');
 	}
 
 	public function index()
@@ -30,7 +30,10 @@ class Welcome extends CI_Controller {
 		$data['isi'] = 'konten/home';
 		$data['title'] = 'Beranda';
 
-		$data['list_produk'] = $this->produkmodel->get_all();
+		$data['list_produk'] = $this->ProdukModel->get_all();
+		$data['pria'] = $this->ProdukModel->get_kategori(1);
+		$data['wanita'] = $this->ProdukModel->get_kategori(2);
+		$data['brand'] = $this->ProdukModel->get_brand();
 
 		$this->load->view('main', $data);
 	}

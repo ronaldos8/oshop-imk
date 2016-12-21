@@ -1,6 +1,12 @@
 
 					<div class="fitur_produk"><!--features_items-->
-						<h2 class="title text-center">Fitur Produk</h2>
+						<h2 class="title text-center">
+							<?php
+								if (isset($header_kategori)) {
+									echo $header_kategori;
+								}else echo "Fitur Produk";
+							?>
+						</h2>
 						
 						<?php
 							if ($list_produk != NULL) {

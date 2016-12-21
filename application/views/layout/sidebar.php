@@ -10,19 +10,23 @@
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											<span class="badge pull-right"><i class="fa fa-caret-square-o-down"></i></span>
 											Wanita
 										</a>
 									</h4>
 								</div>
-								<div id="sportswear" class="panel-collapse collapse">
+								<div id="sportswear" class="panel-collapse in">
 									<div class="panel-body">
 										<ul>
-											<li><a href="">atasan </a></li>
-											<li><a href="">Bawahan </a></li>
-											<li><a href="">Dress </a></li>
-											<li><a href="">Outer</a></li>
-											<li><a href="">K-Fashion</a></li>
+											<?php
+												if ($wanita != NULL) {
+													foreach ($wanita as $value) {
+											?>
+														<li><a href="<?php echo base_url('produk/kategori/') .$value->id_sub; ?>"><?php echo $value->nama_sub; ?> </a></li>
+											<?php
+													}
+												}
+											?>
 										</ul>
 									</div>
 								</div>
@@ -31,37 +35,42 @@
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+											<span class="badge pull-right"><i class="fa fa-caret-square-o-down"></i></span>
 											PRIA
 										</a>
 									</h4>
 								</div>
-								<div id="mens" class="panel-collapse collapse">
+								<div id="mens" class="panel-collapse in">
 									<div class="panel-body">
 										<ul>
-											<li><a href="">Atasan</a></li>
-											<li><a href="">Bawahan</a></li>
-											<li><a href="">Out Wear</a></li>
-											<li><a href="">Perlengkapan shalat</a></li>
-											<li><a href="">Baju Koko</a></li>
-								
+											<?php
+												if ($pria != NULL) {
+													foreach ($pria as $value) {
+											?>
+														<li><a href="<?php echo base_url('produk/kategori/') .$value->id_sub; ?>"><?php echo $value->nama_sub; ?> </a></li>
+											<?php
+													}
+												}
+											?>
 										</ul>
 									</div>
 								</div>
 							</div>							
 						</div><!--/category-products-->
-					
+
 						<div class="brands_products"><!--brands_products-->
 							<h2>Merek</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+									<?php
+										if ($brand != NULL) {
+											foreach ($brand as $value) {
+									?>
+												<li><a href="<?php echo base_url('produk/brand/') .$value->brand_produk; ?>"> <span class="pull-right"><!-- (50) --></span><?php echo $value->brand_produk; ?></a></li>
+									<?php
+											}
+										}
+									?>
 								</ul>
 							</div>
 						</div><!--/brands_products-->

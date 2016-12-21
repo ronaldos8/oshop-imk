@@ -47,7 +47,13 @@
 		        					<?php
 		        						if ($list_subkategori != NULL) {
 		        							foreach ($list_subkategori as $value) {
-		        								echo "<option value='" .$value->id_sub ."'>" .$value->nama_sub ."</option>";
+		        								$str = "<option value='" .$value->id_sub ."'>" .$value->nama_sub;
+		        								if ($value->kategori == 2) {
+		        									$str .= " Perempuan";
+		        								}else $str .= " Pria";
+		        								$str .= "</option>";
+
+		        								echo $str;
 		        							}
 		        						}
 		        					?>

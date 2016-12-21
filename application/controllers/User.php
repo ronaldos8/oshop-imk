@@ -6,8 +6,8 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('usermodel');
-		$this->load->model('produkmodel');
+		$this->load->model('UserModel');
+		$this->load->model('ProdukModel');
 		$this->load->library('cart');
 	}
 
@@ -15,7 +15,7 @@ class User extends CI_Controller {
 	{
 		$id = $this->session->userdata('ID_user');
 
-		$pembeli = $this->usermodel->get_user($id);
+		$pembeli = $this->UserModel->get_user($id);
 
 		$data['title'] = $pembeli->nama_pembeli;
 		$data['slider'] = 0;
@@ -48,7 +48,7 @@ class User extends CI_Controller {
 	{
 		$id = $this->session->userdata('ID_user');
 
-		$pembeli = $this->usermodel->get_user($id);
+		$pembeli = $this->UserModel->get_user($id);
 
 		$data['title'] = $pembeli->nama_pembeli;
 		$data['slider'] = 0;
@@ -86,16 +86,20 @@ class User extends CI_Controller {
 
 			if (is_array($id)) {
 				foreach ($id as $value) {
-					$data['produk'][] = $this->produkmodel->get_by_id($value);
+					$data['produk'][] = $this->ProdukModel->get_by_id($value);
 				}
-			}else $data['produk'] = $this->produkmodel->get_by_id($id);
+			}else $data['produk'] = $this->ProdukModel->get_by_id($id);
 
 			$data['title'] = 'Beli ';
 			$data['v_kategori'] = FALSE;
 			$data['slider'] = 0;
 			$data['isi'] = 'konten/beli';
 
-			$data['pembeli'] = $this->usermodel->get_user($this->session->userdata('ID_user'));
+			// if ($this->session->has_userdata('ID_user')) {
+				$data['pembeli'] = $this->UserModel->get_user($this->session->userdata('ID_user'));
+			// }else {
+				// redirect(base_url(),'refresh');
+			// }ss
 
 			$this->load->view('main', $data);
 
@@ -105,7 +109,7 @@ class User extends CI_Controller {
 	function pembayaran($id = NULL, $qty = NULL)
 	{
 		if ($id != NULL) {
-			$data['produk'] = $this->produkmodel->get_by_id($id);
+			$data['produk'] = $this->ProdukModel->get_by_id($id);
 			$data['title'] = 'Pembayaran ';
 			$data['v_kategori'] = FALSE;
 			$data['slider'] = 0;
@@ -114,7 +118,12 @@ class User extends CI_Controller {
 			if (isset($qty)) {
 				$data['qty'] = $qty;
 			}
-			$data['pembeli'] = $this->usermodel->get_user($this->session->userdata('ID_user'));
+
+			if ($this->session->has_userdata('ID_user')) {
+				$data['pembeli'] = $this->UserModel->get_user($this->session->userdata('ID_user'));
+			}else {
+				redirect(base_url(),'refresh');
+			}
 
 			$this->load->view('main', $data);
 		}else {
@@ -141,7 +150,7 @@ class User extends CI_Controller {
 		$data['v_kategori'] = FALSE;
 		$data['isi'] = 'konten/transaksi';
 
-		$data['transaksi'] = $this->usermodel->get_trx($this->session->userdata('ID_user'));
+		$data['transaksi'] = $this->UserModel->get_trx($this->session->userdata('ID_user'));
 
 		$this->load->view('main', $data);
 	}
@@ -162,7 +171,7 @@ class User extends CI_Controller {
 
 	function proses_login()
 	{
-		$row = $this->usermodel->get_login($this->input->post('username'), $this->input->post('password'));
+		$row = $this->UserModel->get_login($this->input->post('username'), $this->input->post('password'));
 		if ($row != NULL) {
 			$array = array(
 				'log_user' => TRUE,
