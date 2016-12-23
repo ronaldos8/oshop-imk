@@ -7,9 +7,9 @@
   <div class="toggle-content">
     <ul class="actions">
       <li><a href="<?php echo base_url('admin/tambahproduk'); ?>">Tambah Produk</a></li>
-      <li><a href="#">Documentation</a></li>
-      <li><a href="#">Issues</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="<?php echo base_url('admin/soon'); ?>">Documentation</a></li>
+      <li><a href="<?php echo base_url('admin/soon'); ?>">Issues</a></li>
+      <li><a href="<?php echo base_url('admin/soon'); ?>">About</a></li>
     </ul>
   </div>
 </div>

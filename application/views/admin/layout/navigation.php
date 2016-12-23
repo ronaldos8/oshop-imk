@@ -10,7 +10,7 @@
           </button>
         </li>
         <li class="logo">
-          <a class="navbar-brand" href="#"><span class="highlight">Admin</span></a>
+          <a class="navbar-brand" href="<?php echo base_url('admin/soon'); ?>"><span class="highlight"><?php echo $this->session->userdata('admin_name'); ?></span></a>
         </li>
         <li>
           <button type="button" class="navbar-toggle">
@@ -27,7 +27,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown notification">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="<?php echo base_url('admin/soon'); ?>" class="dropdown-toggle" data-toggle="dropdown">
             <div class="icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i></div>
             <div class="title">New Orders</div>
             <div class="count">0</div>
@@ -37,13 +37,13 @@
               <li class="dropdown-header">Ordering</li>
               <li class="dropdown-empty">No New Ordered</li>
               <li class="dropdown-footer">
-                <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a href="<?php echo base_url('admin/soon'); ?>">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
               </li>
             </ul>
           </div>
         </li>
         <li class="dropdown notification warning">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="<?php echo base_url('admin/soon'); ?>" class="dropdown-toggle" data-toggle="dropdown">
             <div class="icon"><i class="fa fa-comments" aria-hidden="true"></i></div>
             <div class="title">Unread Messages</div>
             <div class="count">99</div>
@@ -52,10 +52,10 @@
             <ul>
               <li class="dropdown-header">Message</li>
               <li>
-                <a href="messaging.html">
+                <a href="<?php echo base_url('admin/soon'); ?>">
                   <span class="badge badge-warning pull-right">10</span>
                   <div class="message">
-                    <img class="profile" src="./assets/images/default.png">
+                    <img class="profile" src="<?php echo base_url('assets/images/user.png'); ?>">
                     <div class="content">
                       <div class="title">"Kofirmasi Pembayaran.."</div>
                       <div class="description">Eeng</div>
@@ -64,10 +64,10 @@
                 </a>
               </li>
               <li>
-                <a href="messaging.html">
+                <a href="<?php echo base_url('admin/soon'); ?>">
                   <span class="badge badge-warning pull-right">5</span>
                   <div class="message">
-                    <img class="profile" src="./assets/images/user.png">
+                    <img class="profile" src="<?php echo base_url('assets/images/user.png'); ?>">
                     <div class="content">
                       <div class="title">"Hello World"</div>
                       <div class="description">Dadang</div>
@@ -76,10 +76,10 @@
                 </a>
               </li>
               <li>
-                <a href="messaging.html">
+                <a href="<?php echo base_url('admin/soon'); ?>">
                   <span class="badge badge-warning pull-right">2</span>
                   <div class="message">
-                    <img class="profile" src="./assets/images/user.png">
+                    <img class="profile" src="<?php echo base_url('assets/images/user.png'); ?>">
                     <div class="content">
                       <div class="title">"Konfirmasi pemesanan.."</div>
                       <div class="description">bambang</div>
@@ -88,13 +88,13 @@
                 </a>
               </li>
               <li class="dropdown-footer">
-                <a href="messaging.html">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a href="<?php echo base_url('admin/soon'); ?>">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
               </li>
             </ul>
           </div>
         </li>
         <li class="dropdown notification danger">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="<?php echo base_url('admin/soon'); ?>" class="dropdown-toggle" data-toggle="dropdown">
             <div class="icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
             <div class="title">System Notifications</div>
             <div class="count">10</div>
@@ -103,7 +103,7 @@
             <ul>
               <li class="dropdown-header">Notification</li>
               <li>
-                <a href="#">
+                <a href="<?php echo base_url('admin/soon'); ?>">
                   <span class="badge badge-danger pull-right">8</span>
                   <div class="message">
                     <div class="content">
@@ -114,25 +114,25 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="<?php echo base_url('admin/soon'); ?>">
                   <span class="badge badge-danger pull-right">14</span>
                   Inbox
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="<?php echo base_url('admin/soon'); ?>">
                   <span class="badge badge-danger pull-right">5</span>
                   Issues Report
                 </a>
               </li>
               <li class="dropdown-footer">
-                <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a href="<?php echo base_url('admin/soon'); ?>">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
               </li>
             </ul>
           </div>
         </li>
         <li class="dropdown profile">
-          <a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
+          <a href="<?php echo base_url('admin/soon'); ?>" class="dropdown-toggle"  data-toggle="dropdown">
             <img class="profile-img" src="<?php echo base_url('assets/images/default.png'); ?>">
             <div class="title">Profile</div>
           </a>
@@ -142,18 +142,18 @@
             </div>
             <ul class="action">
               <li>
-                <a href="./pages/profile.html">
+                <a href="<?php echo base_url('admin/soon'); ?>">
                   Profile
                 </a>
               </li>
               <li>
-                <a href="messaging.html">
+                <a href="<?php echo base_url('admin/chat'); ?>">
                   <span class="badge badge-danger pull-right">5</span>
                   My Inbox
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="<?php echo base_url('admin/soon'); ?>">
                   Setting
                 </a>
               </li>

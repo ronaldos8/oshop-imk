@@ -4,7 +4,7 @@
 
 <aside class="app-sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="sidebar-brand" href="#"><span class="highlight">
+    <a class="sidebar-brand" href="<?php echo base_url('admin/soon'); ?>"><span class="highlight">
       Welcome,
       <?php echo $this->session->userdata('admin_name'); ?>
     </span></a>
@@ -57,8 +57,8 @@
           <ul>
             <!-- <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Admin</li> -->
             <li><a href="<?php echo base_url('admin/kategori'); ?>">Kategori</a></li>
-            <li><a href="./pages/profile.html">Profile</a></li>
-            <li><a href="./pages/search.html">Search</a></li>
+            <li><a href="<?php echo base_url('admin/soon'); ?>">Profile</a></li>
+            <li><a href="<?php echo base_url('admin/soon'); ?>">Search</a></li>
             <li class="line"></li>
           </ul>
         </div>
@@ -68,7 +68,7 @@
   <div class="sidebar-footer">
     <ul class="menu">
       <li>
-        <a href="/" class="dropdown-toggle" data-toggle="dropdown">
+        <a href="<?php echo base_url('admin/soon'); ?>" class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-cogs" aria-hidden="true"></i>
         </a>
       </li>

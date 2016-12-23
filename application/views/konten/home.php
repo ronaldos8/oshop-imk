@@ -56,5 +56,12 @@
 									$i++;
 								}
 							}
+
 						?>
 					</div><!--features_items-->
+					<div class="clearfix">
+						
+					</div>
+					<div align="center">
+						<?php //echo $pagination; ?>
+					</div>

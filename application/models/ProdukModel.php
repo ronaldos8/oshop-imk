@@ -83,6 +83,13 @@ class ProdukModel extends CI_Model {
 		$r = $this->db->query($q);
 		return $r->result();
 	}
+
+	function get_by_parent($id)
+	{
+		$q = "SELECT a.* FROM produk a, subkategori b, kategori c WHERE a.kategori_produk = b.id_sub and b.kategori = c.id_kategori and c.id_kategori = $id";
+		$r = $this->db->query($q);
+		return $r->result();
+	}
 }
 
 /* End of file ProdukModel.php */

@@ -77,7 +77,7 @@ class Admin extends CI_Controller {
 		$data['list_produk'] = $this->ProdukModel->get_for_paging(5, $offset);
 		$numrow = $this->ProdukModel->get_num_row();
 
-		// pagination scheduling
+		// pagination Produk
 		$config['base_url'] = base_url('admin/produk/');
 		$config['total_rows'] = $numrow;
 		$config['per_page'] = 5;
@@ -247,6 +247,24 @@ class Admin extends CI_Controller {
 		$data['page_header'] = 'Obrolan';
 		$data['menu_chat'] = 'active';
 		$data['isi'] = 'admin/chat';
+		$this->load->view('admin/main', $data);
+	}
+
+	function trx($id)
+	{
+		$data['title'] = 'Transaksi ';
+		$data['page_header'] = 'Transaksi';
+		$data['menu_trx'] = 'active';
+		$data['isi'] = 'soon';
+		$this->load->view('admin/main', $data);
+	}
+
+	function soon()
+	{
+		$data['title'] = 'This page is coming soon ';
+		$data['page_header'] = 'Page Name';
+		// $data['menu_trx'] = 'active';
+		$data['isi'] = 'soon';
 		$this->load->view('admin/main', $data);
 	}
 

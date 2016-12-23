@@ -11,7 +11,7 @@
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
 											<span class="badge pull-right"><i class="fa fa-caret-square-o-down"></i></span>
-											Wanita
+											<a href="<?php echo base_url('welcome/kategori/wanita'); ?>" title="">Wanita</a>
 										</a>
 									</h4>
 								</div>
@@ -36,7 +36,7 @@
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
 											<span class="badge pull-right"><i class="fa fa-caret-square-o-down"></i></span>
-											PRIA
+											<a href="<?php echo base_url('welcome/kategori/pria'); ?>" title="">Pria</a>
 										</a>
 									</h4>
 								</div>
