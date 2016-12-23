@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
 		$this->load->model('ProdukModel');
 		$this->load->model('AdminModel');
 		$this->load->helper('file');
+		$this->load->library('pagination');
 	}
 
 	public function index()
@@ -63,16 +64,51 @@ class Admin extends CI_Controller {
 
 	}
 
-	function produk()
+	function produk($offset = 0)
 	{
 		$this->cek_login();
-
+	
 		$data['menu_product'] = 'active';
 		$data['title'] = 'Produk';
 		$data['page_header'] = 'Produk';
 		$data['isi'] = 'admin/produk';
+		$data['no'] = $offset+1;
 
-		$data['list_produk'] = $this->ProdukModel->get_all();
+		$data['list_produk'] = $this->ProdukModel->get_for_paging(5, $offset);
+		$numrow = $this->ProdukModel->get_num_row();
+
+		// pagination scheduling
+		$config['base_url'] = base_url('admin/produk/');
+		$config['total_rows'] = $numrow;
+		$config['per_page'] = 5;
+		$config['uri_segment'] = 3;
+
+		$config['full_tag_open'] = "<ul class='pagination'>";
+		$config['full_tag_close'] = "</ul>";
+
+		$config['first_tag_open'] = "<li>";
+		$config['first_tag_close'] = "</li>";
+
+		$config['last_tag_open'] = "<li>";
+		$config['last_tag_close'] = "</li>";
+
+		$config['next_tag_open'] = "<li>";
+		$config['next_tag_close'] = "</li>";
+
+		$config['prev_tag_open'] = "<li>";
+		$config['prev_tag_close'] = "</li>";
+
+		$config['num_tag_open'] = "<li>";
+		$config['num_tag_close'] = "</li>";
+
+		$config['cur_tag_open'] = "<li class='active'><a><b>";
+		$config['cur_tag_close'] = "</b></a></li>";
+
+		$config['next_link'] = 'Selanjutnya';
+		$config['prev_link'] = 'Sebelumnya';
+
+		$this->pagination->initialize($config);
+		$data['pagination'] = $this->pagination->create_links();
 
 		$this->load->view('admin/main', $data); 
 	}
@@ -94,8 +130,8 @@ class Admin extends CI_Controller {
 	function prosesproduk()
 	{
 		$config['upload_path']          = './assets/images/produk/';
-        $config['allowed_types']        = 'gif|jpg|png|GIF|JPG|PNG';
-        $config['max_size']             = 1000000;
+        $config['allowed_types']        = '*';
+        $config['max_size']             = 10000000;
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
 
@@ -160,6 +196,58 @@ class Admin extends CI_Controller {
 				redirect(base_url('admin/kategori'),'refresh');
 			}
 		}
+	}
+
+	function transaksi()
+	{
+		$this->cek_login();
+		
+		$data['title'] = 'Transaksi';
+		$data['page_header'] = 'Transaksi';
+		$data['menu_trx'] = 'active';
+		$data['isi'] = 'admin/transaksi';
+
+		$data['transaksi_bl'] = $this->AdminModel->get_trx();
+
+		$this->load->view('admin/main', $data);
+	}
+
+	function lunas_trx($id)
+	{
+		$this->db->where('ID', $id);
+		$data['status'] = 1;
+		$this->db->update('transaksi', $data);
+		$this->session->set_flashdata('status', 'Produk berhasil diupdate');
+		redirect(base_url('admin/transaksi'),'refresh');
+	}
+
+	function pending_trx($id)
+	{
+		$this->db->where('ID', $id);
+		$data['status'] = 2;
+		$this->db->update('transaksi', $data);
+		$this->session->set_flashdata('status', 'Produk berhasil diupdate');
+		redirect(base_url('admin/transaksi'),'refresh');
+	}
+
+	function bl_trx($id)
+	{
+		$this->db->where('ID', $id);
+		$data['status'] = 0;
+		$this->db->update('transaksi', $data);
+		$this->session->set_flashdata('status', 'Produk berhasil diupdate');
+		redirect(base_url('admin/transaksi'),'refresh');
+	}
+
+	function chat()
+	{
+		$this->cek_login();
+		
+		$data['title'] = 'Obrolan';
+		$data['page_header'] = 'Obrolan';
+		$data['menu_chat'] = 'active';
+		$data['isi'] = 'admin/chat';
+		$this->load->view('admin/main', $data);
 	}
 
 	function logout()

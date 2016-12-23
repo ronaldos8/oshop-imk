@@ -198,8 +198,19 @@ class User extends CI_Controller {
 		$this->load->view('main', $data);
 	}
 
-	function proses_cart()
+	function proses_cart($id = NULL)
 	{
+		if ($id != NULL) {
+			$pr = $this->ProdukModel->get_by_id($id);
+
+			$_POST['id_produk'] = $pr->id_produk;
+			$_POST['qty'] = 1;
+			$_POST['harga_produk'] = $pr->harga_produk;
+			$_POST['nama_produk'] = $pr->nama_produk;
+			$_POST['foto_produk'] = $pr->foto_produk;
+			$_POST['submit'] = 'cart';
+		}
+
 		if ($this->input->post('submit') == 'cart') {
 			$data = array(
 				'id'      => $this->input->post('id_produk'),
@@ -211,7 +222,8 @@ class User extends CI_Controller {
 
 			$this->cart->insert($data);
 			
-			$r = base_url('produk/s/') .$this->input->post('id_produk');
+			// $r = base_url('produk/s/') .$this->input->post('id_produk');
+			$r = base_url('user/cart');
 			redirect($r,'refresh');
 		}else if ($this->input->post('submit') == 'buy') {
 			$r = base_url('user/beli/') .$this->input->post('id_produk') ."/" .$this->input->post('qty');
@@ -231,7 +243,11 @@ class User extends CI_Controller {
 		redirect(base_url('user/cart'),'refresh');
 	}
 
-	// function 
+	function logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url(),'refresh');
+	}
 
 }
 

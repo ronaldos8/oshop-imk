@@ -10,6 +10,7 @@
 						
 						<?php
 							if ($list_produk != NULL) {
+								$i = 1;
 								foreach ($list_produk as $value) {
 						?>
 									<div class="col-sm-4">
@@ -43,12 +44,16 @@
 											</div>
 											<div class="choose">
 												<ul class="nav nav-pills nav-justified">
-													<li><a href="#"><i class="fa fa-plus-square"></i>Tambah wishlist</a></li>
+													<li><a href="<?php echo base_url('produk/proses_wishlist/') .$value->id_produk; ?>"><i class="fa fa-plus-square"></i>Tambah wishlist</a></li>
 												</ul>
 											</div>
 										</div>
 									</div>
 						<?php
+									if ($i % 3 == 0) {
+										echo "<div class='clearfix'></div>";
+									}
+									$i++;
 								}
 							}
 						?>

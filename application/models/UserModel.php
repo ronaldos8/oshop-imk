@@ -26,6 +26,13 @@ class UserModel extends CI_Model {
 		return $r->result();
 	}
 
+	function get_wishlist($id)
+	{
+		$q = "SELECT c.whishlist_id as whishlist_id, a.id_produk as id_produk, a.nama_produk as nama_produk, a.foto_produk as foto_produk, a.harga_produk as harga_produk FROM produk a, pembeli b, whishlist c WHERE a.id_produk = c.id_produk and b.id_pembeli = c.id_pembeli and c.id_pembeli = $id";
+		$r = $this->db->query($q);
+		return $r->result();
+	}
+
 }
 
 /* End of file userModel.php */

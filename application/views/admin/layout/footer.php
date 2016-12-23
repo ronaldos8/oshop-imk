@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="footer-copyright">
-        Copyright © 2016 Mat.
+        Copyright © 2016 Developer Team.
       </div>
     </div>
   </div>

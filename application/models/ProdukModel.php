@@ -3,6 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ProdukModel extends CI_Model {
 
+	function get_for_paging($limit, $offset)
+	{
+		$r = $this->db->get('produk', $limit, $offset);
+		return  $r->result();
+	}
+
+	function get_num_row()
+	{
+		$r = $this->db->get('produk');
+		return $r->num_rows();
+	}
+
 	function get_all()
 	{
 		return $this->db->get('produk')->result();
@@ -44,6 +56,13 @@ class ProdukModel extends CI_Model {
 		return $r->result();
 	}
 
+	function get_by_rec($id)
+	{
+		$this->db->where('kategori_produk', $id);
+		$r = $this->db->get('produk', 9, 0);
+		return $r->result();
+	}
+
 	function get_by_brand($str)
 	{
 		$q = "SELECT * FROM produk WHERE brand_produk LIKE '%$str%'";
@@ -54,6 +73,13 @@ class ProdukModel extends CI_Model {
 	function get_by_name($str)
 	{
 		$q = "SELECT * FROM produk WHERE nama_produk LIKE '%$str%'";
+		$r = $this->db->query($q);
+		return $r->result();
+	}
+
+	function get_all_order($order)
+	{
+		$q = "SELECT * FROM produk order by $order";
 		$r = $this->db->query($q);
 		return $r->result();
 	}

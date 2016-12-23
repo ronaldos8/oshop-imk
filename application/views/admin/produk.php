@@ -25,7 +25,7 @@
 	        	<tbody>
 		            <?php
 		            	if ($list_produk != NULL) {
-		            		$c = 1;
+		            		$c = $no;
 		            		foreach ($list_produk as $value) {
 		            ?>
 		            			<tr>
@@ -66,6 +66,12 @@
 		            ?>
 	        	</tbody>
 	        </table>
+	        <div class="clearfix">
+	        	
+	        </div>
+	        <div class="container" align="center">
+	        	<?php echo $pagination; ?>
+	        </div>
       	</div>
     </div>
 </div>

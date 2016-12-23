@@ -52,11 +52,11 @@
 								<?php
 									if ($this->session->has_userdata('log_user')) {
 								?>
-									<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
+									<li><a href="<?php echo base_url('produk/wishlist'); ?>"><i class="fa fa-star"></i> Wishlist</a></li>
 								<?php
 									}
 								?>
-								<li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<!-- <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
 								<li><a href="<?php echo base_url('user/cart'); ?>"><i class="fa fa-shopping-cart"></i> Keranjang Belanja</a></li>
 								<?php
 									if (!$this->session->has_userdata('log_user')) {
@@ -66,7 +66,9 @@
 								<?php
 									}else {
 								?>
+										<li><a href="<?php echo base_url('user/transaksi'); ?>"><i class="fa fa-exchange"></i> Transaksi</a></li>
 										<li><a href="<?php echo base_url('user'); ?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('nama_user'); ?></a></li>
+										<li><a href="<?php echo base_url('user/logout'); ?>"><i class="fa fa-sign-out"></i> Logout	</a></li>
 								<?php
 									}
 								?>

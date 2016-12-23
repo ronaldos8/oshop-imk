@@ -66,12 +66,29 @@
 										if ($brand != NULL) {
 											foreach ($brand as $value) {
 									?>
-												<li><a href="<?php echo base_url('produk/brand/') .$value->brand_produk; ?>"> <span class="pull-right"><!-- (50) --></span><?php echo $value->brand_produk; ?></a></li>
+												<li><a href="<?php echo base_url('produk/brand/') .$value; ?>"> <span class="pull-right"><!-- (50) --></span><?php echo $value; ?></a></li>
 									<?php
 											}
 										}
 									?>
 								</ul>
+							</div>
+						</div><!--/brands_products-->
+						<br>
+						<div class="brands_products"><!--brands_products-->
+							<h2>Filter / Urutkan</h2>
+							<div class="brands-name">
+								<form action="<?php echo base_url('welcome/index'); ?>" method="get" accept-charset="utf-8">
+									<select name="orderby" required >
+										<option value="">-- Filter --</option>
+										<option value="harga_produk asc">Harga Termurah</option>
+										<option value="harga_produk desc">Harga Termahal</option>
+									</select>
+									<div align="center">
+										<br>
+										<button type="submit" class="btn btn-default">Filter</button>
+									</div>
+								</form>
 							</div>
 						</div><!--/brands_products-->
 					</div>

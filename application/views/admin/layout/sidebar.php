@@ -22,12 +22,20 @@
           <div class="title">Dashboard</div>
         </a>
       </li>
-      <li class="@@menu.messaging">
-        <a href="#">
+      <li class="<?php if(isset($menu_trx)) echo $menu_trx; ?>">
+        <a href="<?php echo base_url('admin/transaksi'); ?>">
+          <div class="icon">
+            <i class="fa fa-exchange" aria-hidden="true"></i>
+          </div>
+          <div class="title">Transaksi</div>
+        </a>
+      </li>
+      <li class="@@menu.messaging <?php if(isset($menu_chat)) echo $menu_chat; ?>">
+        <a href="<?php echo  base_url('admin/chat'); ?>">
           <div class="icon">
             <i class="fa fa-comments" aria-hidden="true"></i>
           </div>
-          <div class="title">Messaging</div>
+          <div class="title">Obrolan</div>
         </a>
       </li>
       <li class="<?php if(isset($menu_product)) echo $menu_product; ?>">
@@ -43,7 +51,7 @@
           <div class="icon">
             <i class="fa fa-file-o" aria-hidden="true"></i>
           </div>
-          <div class="title">Other</div>
+          <div class="title">Lainnya</div>
         </a>
         <div class="dropdown-menu">
           <ul>

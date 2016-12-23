@@ -24,17 +24,50 @@ class Welcome extends CI_Controller {
 		$this->load->model('ProdukModel');
 	}
 
-	public function index()
+	public function index($order = NULL)
 	{
 		$data['slider'] = 1;
 		$data['isi'] = 'konten/home';
 		$data['title'] = 'Beranda';
+		echo $order;
+		if ($order != NULL) {
+			// $data['list_produk'] = $this->ProdukModel->get_all_order();
+			print_r($_GET['orderby']);
+		}else {
+			$data['list_produk'] = $this->ProdukModel->get_all();
+		}
 
-		$data['list_produk'] = $this->ProdukModel->get_all();
+
 		$data['pria'] = $this->ProdukModel->get_kategori(1);
 		$data['wanita'] = $this->ProdukModel->get_kategori(2);
-		$data['brand'] = $this->ProdukModel->get_brand();
+		$b = $this->ProdukModel->get_brand();
 
+		$i = 0;
+		foreach ($b as $value) {
+			$brand[$i] = $value->brand_produk;
+			$i++;
+		}
+		$i = 0;
+		$c = 0;
+		$max = count($brand);
+		while ($i < $max) {
+			if ($i < $max-1) {
+				if ($brand[$i] == $brand[$i+1]) {
+					$i++;
+					$data['brand'][$c] = $brand[$i];
+					if ($brand[$i+1] != $brand[$i+2]) {
+						$c++;
+					}
+				}else{
+					$data['brand'][$c] = $brand[$i];
+					$c++;
+				}
+			}else {
+				$data['brand'][$c] = $brand[$i];
+			}
+			$i++;
+		}
+		
 		$this->load->view('main', $data);
 	}
 }

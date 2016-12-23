@@ -6,6 +6,7 @@
 			  <li class="active">Shopping Cart</li>
 			</ol>
 		</div> -->
+		<h3>Keranjang Belanja</h3>
 		<div class="table-responsive cart_info">
 			<table class="table table-condensed">
 				<thead>
@@ -29,7 +30,7 @@
 										<a href="<?php echo base_url('produk/s/') .$item['id']; ?>"><img src="<?php echo base_url('assets/images/produk/') .$item['foto']; ?>" alt=""></a>
 									</td>
 									<td class="cart_description">
-										<h4><a href="<?php echo base_url('produk/s/') .$item['id']; ?>">Colorblock Scuba</a></h4>
+										<h4><a href="<?php echo base_url('produk/s/') .$item['id']; ?>"><?php echo $item['name']; ?></a></h4>
 										<!-- <p>Web ID: 1089772</p> -->
 									</td>
 									<td class="cart_price">
