@@ -194,6 +194,7 @@ class User extends CI_Controller {
 		$data['slider'] = 0;
 		$data['v_kategori'] = FALSE;
 		$data['isi'] = 'konten/cart';
+		$data['menu_cart'] = 1;
 
 		$this->load->view('main', $data);
 	}

@@ -27,6 +27,7 @@ class Welcome extends CI_Controller {
 
 	public function index($order = NULL)
 	{
+		$data['menu_beranda'] = 1;
 		$data['slider'] = 1;
 		$data['isi'] = 'konten/home';
 		$data['title'] = 'Beranda';

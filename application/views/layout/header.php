@@ -52,16 +52,16 @@
 								<?php
 									if ($this->session->has_userdata('log_user')) {
 								?>
-									<li><a href="<?php echo base_url('produk/wishlist'); ?>"><i class="fa fa-star"></i> Wishlist</a></li>
+									<li class="<?php if(isset($menu_wishlist)) echo "active"; ?>"><a href="<?php echo base_url('produk/wishlist'); ?>"><i class="fa fa-star"></i> Wishlist</a></li>
 								<?php
 									}
 								?>
 								<!-- <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
-								<li><a href="<?php echo base_url('user/cart'); ?>"><i class="fa fa-shopping-cart"></i> Keranjang Belanja</a></li>
+								<li class="<?php if(isset($menu_cart)) echo "active"; ?>"><a href="<?php echo base_url('user/cart'); ?>"><i class="fa fa-shopping-cart"></i> Keranjang Belanja</a></li>
 								<?php
 									if (!$this->session->has_userdata('log_user')) {
 								?>
-									<li><a href="<?php echo base_url('user/login'); ?>"><i class="fa fa-plus-square-o"></i> Daftar</a></li>
+									<li <?php if(isset($menu_login)) echo "active"; ?>><a href="<?php echo base_url('user/login'); ?>"><i class="fa fa-plus-square-o"></i> Daftar</a></li>
 									<li><a href="<?php echo base_url('user/login'); ?>" class="<?php if(isset($menu_login)) echo $menu_login; ?>"><i class="fa fa-lock"></i> Login</a></li>
 								<?php
 									}else {
@@ -94,8 +94,8 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="<?php echo base_url(); ?>" class="active">Beranda</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+								<li><a href="<?php echo base_url(); ?>" class="<?php if(isset($menu_beranda)) echo "active"; ?>">Beranda</a></li>
+								<li class="dropdown" class="<?php if(isset($menu_shop)) echo "active"; ?>"><a href="#">Belanja<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Produk</a></li>
 										<li><a href="product-details.html">Kategori</a></li>  
@@ -103,7 +103,7 @@
 										<li><a href="login.html">Pengiriman</a></li> 
                                     </ul>
                                 </li> 
-								<li><a href="contact-us.html">Tentang Kami</a></li>
+								<li class="<?php if(isset($menu_about)) echo "active"; ?>"><a href="contact-us.html">Tentang Kami</a></li>
 							</ul>
 						</div>
 					</div>
